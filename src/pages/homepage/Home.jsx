@@ -97,9 +97,8 @@ export default function Home() {
               {products
                 .filter((product) => product.bestseller)
                 .map((product) => {
-                  const inWishList = wishList.some(
-                    (item) => item.id === product.id
-                  );
+                  const inWishList = wishList.includes(product.id);
+
 
                   return (
                     <div
@@ -123,11 +122,15 @@ export default function Home() {
                         <button
                           onClick={() =>
                             inWishList
-                              ? removeFromWishList(product)
-                              : addToWishList(product)
+                              ? removeFromWishList(product.id)
+                              : addToWishList(product.id)
                           }
                           className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition"
                         >
+
+
+
+                          
                           {inWishList ? (
                             <HeartSolid className="h-6 w-6 text-red-500" />
                           ) : (
@@ -135,7 +138,7 @@ export default function Home() {
                           )}
                         </button>
 
-                        <div className="absolute top-2 left-2 bg-white px-2 py-1 text-xs font-medium">
+                        <div className="absolute top-2 left-2 bg-white text-red-400 px-2 py-1 text-xs font-medium">
                           Best Seller
                         </div>
                       </div>
@@ -271,9 +274,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-6">
             {products.slice(0, 18).map((product) => {
-              const isInWishList = wishList.some(
-                (item) => item.id === product.id
-              );
+              const inWishList = wishList.includes(product.id);
               return (
                 <div key={product.id} className="group relative">
                   <div className="relative" style={{ paddingTop: "125%" }}>
@@ -292,13 +293,13 @@ export default function Home() {
 
                     <button
                       onClick={() =>
-                        isInWishList
-                          ? removeFromWishList(product)
-                          : addToWishList(product)
-                      }
+                            inWishList
+                              ? removeFromWishList(product.id)
+                              : addToWishList(product.id)
+                          }
                       className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition"
                     >
-                      {isInWishList ? (
+                      {inWishList ? (
                         <HeartSolid className="h-6 w-6 text-red-500" />
                       ) : (
                         <HeartOutline className="h-6 w-6 text-gray-400 hover:text-red-500" />

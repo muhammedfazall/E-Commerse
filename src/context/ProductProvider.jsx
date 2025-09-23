@@ -54,40 +54,84 @@ export default function ProductProvider({ children }) {
   }, []);
 
 
-  const addToCart = async (product)=>{
-    setCart((prev)=>{ 
-    if(prev.some((item) => item.id === product.id)){
-      return prev;
-      
-    }
-    return [...prev, { ...product, quantity: 1 }];
-  });
+  useEffect(()=>{
+    if(!user)return;
 
-   try {
-      await axios.patch(`${userApi}/${user.id}`, { cart: cart });
-      console.log("Updated cart in db.json");
-    } catch (err) {
-      console.error("Error updating cart in db.json", err);
+    const updateCartOnServer= async () => {
+      try{
+        await axios.patch(`${userApi}/${user.id}`,{cart});
+        console.log("updated cart on server")
+      }catch(error){
+        console.log("Error updating on server",error);
+        
+      }
     }
-  
-};
-  const removeFromCart = (product) => {
-    setCart((prev) => prev.filter((item) => item.id !== product.id));
+
+    updateCartOnServer();
+  },[cart,user]);
+
+
+  useEffect(() => {
+  if (!user) return;
+
+  const updateWishListOnServer = async () => {
+    try {
+      await axios.patch(`${userApi}/${user.id}`, { wishList });
+      console.log("Updated wishlist on server");
+    } catch (err) {
+      console.error("Error updating wishlist on server:", err);
+    }
   };
 
-  const increaseQuantity=(productId) => {
+  updateWishListOnServer();
+}, [wishList, user]);
+
+
+  const addToCart = (product, size) => {
+  setCart((prev) => {
+    // check if same product + same size already exists
+    const existingItem = prev.find(
+      (item) => item.id === product.id && item.selectedSize === size
+    );
+
+    if (existingItem) {
+      // if found, just increase quantity
+      return prev.map((item) =>
+        item.id === product.id && item.selectedSize === size
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    }
+
+    // otherwise add as new line item
+    return [...prev, { ...product, selectedSize: size, quantity: 1 }];
+  });
+};
+
+
+
+  const removeFromCart = (product) => {
+    setCart((prev) =>
+  prev.filter(
+    (item) => !(item.id === product.id && item.selectedSize === product.selectedSize)
+  )
+);
+
+  };
+
+  const increaseQuantity=(productId,size) => {
   setCart((prev) =>
-    prev.map((item) =>
-      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-    )
+  prev.map((item) => item.id === productId && item.selectedSize === size ?
+    {...item, quantity : item.quantity + 1} : item
+  )
   );
 };
 
-const decreaseQuantity = (productId) => {
+const decreaseQuantity = (productId, size) => {
   setCart((prev) =>
     prev
       .map((item) =>
-        item.id === productId
+        item.id === productId && item.selectedSize === size
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
@@ -98,24 +142,18 @@ const decreaseQuantity = (productId) => {
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
-  const addToWishList = async (product) => {
-    setWishList((prev) => {
-      if (prev.some((item) => item.id === product.id)) {
-        return prev;
-      }
-      return [...prev, product];
-    });
 
-    try {
-      await axios.patch(`${userApi}/${user.id}`, { wishList: wishList });
-      console.log("Updated wishlist in db.json");
-    } catch (err) {
-      console.error("Error updating wishlist in db.json", err);
-    }
-  };
+  const addToWishList = (productId) => {
+  setWishList((prev) => {
+    if (prev.includes(productId)) return prev;
+    return [...prev, productId];
+  });
+};
 
-  const removeFromWishList = (product) => {
-    setWishList((prev) => prev.filter((item) => item.id !== product.id));
+
+
+  const removeFromWishList = (productId) => {
+    setWishList((prev) => prev.filter((id) => id !== productId));
   };
 
   return (

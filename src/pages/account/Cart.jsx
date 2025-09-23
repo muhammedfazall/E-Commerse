@@ -71,7 +71,7 @@ export default function Cart() {
                         className="-my-6 divide-y divide-gray-200"
                       >
                         {cart.map((product) => (
-                          <li key={product.id} className="flex py-6">
+                          <li key={`${product.id}-${product.selectedSize}`} className="flex py-6">
                           
                             <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
@@ -90,11 +90,15 @@ export default function Cart() {
                                 <p className="mt-1 text-sm text-gray-500">
                                   {product.category}
                                 </p>
+                                <p className="mt-1 text-sm text-gray-500">
+                                  Size: {product.selectedSize}
+                                </p>
+
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">
                                 <div className="flex items-center gap-2">
                                   <button
-                                    onClick={() => decreaseQuantity(product.id)}
+                                    onClick={() => decreaseQuantity(product.id,product.selectedSize)}
                                     disabled={product.quantity === 1}
                                     className="px-2 py-1 cursor-pointer border rounded"
                                   >
@@ -102,7 +106,7 @@ export default function Cart() {
                                   </button>
                                   <span>{product.quantity}</span>
                                   <button
-                                    onClick={() => increaseQuantity(product.id)}
+                                    onClick={() => increaseQuantity(product.id,product.selectedSize)}
                                     className="px-2 py-1 cursor-pointer border rounded"
                                   >
                                     +

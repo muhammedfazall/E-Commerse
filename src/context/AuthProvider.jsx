@@ -56,7 +56,7 @@ export default function AuthProvider({ children }) {
   const closeAccount = () => setIsAccountOpen(false);
 
   return (
-    <AuthContext.Provider value={{ user, login, isAccountOpen, openAccount, closeAccount, logout }}>
+    <AuthContext.Provider value={{ user,setUser, login, isAccountOpen, openAccount, closeAccount, logout }}>
       {children}
     </AuthContext.Provider>
   );

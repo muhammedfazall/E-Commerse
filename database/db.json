@@ -6,208 +6,275 @@
       "email": "fin@fake.com",
       "role": "user",
       "password": "123",
-      "cart": [
+      "cart": [],
+      "orders": [
         {
-          "id": 7,
-          "name": "Nike Dunk Low 'Panda'",
-          "category": "Nike Dunk",
-          "price": 120,
-          "rating": 5,
-          "reviews": 1200,
-          "image": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31752432_2048.jpg-scaled.webp",
-          "image2": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31750946_2048.jpg-scaled.webp",
-          "bestseller": true,
-          "sizes": [
+          "id": 1758539249064,
+          "items": [
             {
-              "name": "7",
-              "inStock": true
+              "id": "7",
+              "name": "Nike Dunk Low 'Panda'",
+              "category": "Nike Dunk",
+              "price": 120,
+              "rating": 5,
+              "reviews": 1200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31752432_2048.jpg-scaled.webp",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31750946_2048.jpg-scaled.webp",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "7",
+                  "inStock": true
+                }
+              ],
+              "description": "The Nike Dunk Low 'Panda' has become a global favorite thanks to its versatile black-and-white leather design that matches any outfit.",
+              "details": "Smooth leather overlays, padded tongue and collar, and classic Dunk cupsole with pivot-circle traction pattern.",
+              "selectedSize": "7",
+              "quantity": 2
             },
             {
-              "name": "7.5",
-              "inStock": false
-            },
-            {
-              "name": "8",
-              "inStock": true
-            },
-            {
-              "name": "8.5",
-              "inStock": true
-            },
-            {
-              "name": "9",
-              "inStock": true
-            },
-            {
-              "name": "10",
-              "inStock": true
-            },
-            {
-              "name": "11",
-              "inStock": false
+              "id": "11",
+              "name": "Air Jordan 4 Retro 'Black Cat'",
+              "category": "Air Jordan 4s",
+              "price": 225,
+              "rating": 5,
+              "reviews": 845,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617121_2048.jpg-scaled.webp",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617131_2048.jpg-scaled.webp",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "10",
+                  "inStock": true
+                }
+              ],
+              "description": "The Air Jordan 4 Retro 'Black Cat' channels stealthy style with an all-black nubuck design.",
+              "details": "Equipped with visible Air cushioning, mesh panels, and tonal Jumpman branding. Sleek and versatile for everyday wear.",
+              "selectedSize": "10",
+              "quantity": 2
             }
           ],
-          "description": "The Nike Dunk Low 'Panda' has become a global favorite thanks to its versatile black-and-white leather design that matches any outfit.",
-          "details": "Smooth leather overlays, padded tongue and collar, and classic Dunk cupsole with pivot-circle traction pattern.",
-          "quantity": 1
+          "address": {
+            "firstName": "fin",
+            "lastName": "ryder",
+            "address": "home (H) , Street, District, State",
+            "contact": "1522849565",
+            "city": "District",
+            "postalCode": "123456",
+            "paymentMode": "UPI"
+          },
+          "paymentMode": "UPI",
+          "total": 751.19,
+          "status": "Processing"
         },
         {
-          "id": 1,
-          "name": "Air Jordan 1 Retro High OG 'Chicago'",
-          "category": "Air Jordan 1 Highs",
-          "price": 199.99,
-          "rating": 5,
-          "reviews": 520,
-          "image": "https://sneakheads.in/wp-content/uploads/2025/01/13157697_21516295_2048-scaled.jpg",
-          "image2": "https://sneakheads.in/wp-content/uploads/2025/01/13157697_21516296_2048-scaled.jpg",
-          "bestseller": true,
-          "sizes": [
+          "id": 1758539586994,
+          "items": [
             {
-              "name": "7",
-              "inStock": true
+              "id": "4",
+              "name": "Air Jordan 6 Retro 'Infrared'",
+              "category": "Air Jordan 6",
+              "price": 210,
+              "rating": 5,
+              "reviews": 650,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/INFRARED-1.png",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/09/IFRARED-2.png",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "10",
+                  "inStock": true
+                }
+              ],
+              "description": "The Air Jordan 6 Retro 'Infrared' revives the sneaker MJ wore during his first championship run, showcasing bold infrared accents on a black nubuck base.",
+              "details": "Includes visible Air-Sole cushioning, translucent outsole, and lace toggle system. Designed for performance and streetwear style.",
+              "selectedSize": "10",
+              "quantity": 1
             },
             {
-              "name": "7.5",
-              "inStock": true
-            },
-            {
-              "name": "8",
-              "inStock": false
-            },
-            {
-              "name": "8.5",
-              "inStock": true
-            },
-            {
-              "name": "9",
-              "inStock": true
-            },
-            {
-              "name": "10",
-              "inStock": false
-            },
-            {
-              "name": "11",
-              "inStock": true
+              "id": "1",
+              "name": "Air Jordan 1 Retro High OG 'Chicago'",
+              "category": "Air Jordan 1 Highs",
+              "price": 199.99,
+              "rating": 5,
+              "reviews": 520,
+              "image": "https://sneakheads.in/wp-content/uploads/2025/01/13157697_21516295_2048-scaled.jpg",
+              "image2": "https://sneakheads.in/wp-content/uploads/2025/01/13157697_21516296_2048-scaled.jpg",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "8.5",
+                  "inStock": true
+                }
+              ],
+              "description": "The iconic Air Jordan 1 Retro High OG 'Chicago' brings back Michael Jordan’s legendary 1985 silhouette in the classic red, white, and black colorway that defined sneaker culture.",
+              "details": "Premium leather upper, cushioned Air midsole, and rubber outsole for durability. Includes classic Wings logo, Nike Air tongue branding, and perforated toe box for breathability.",
+              "selectedSize": "8.5",
+              "quantity": 1
             }
           ],
-          "description": "The iconic Air Jordan 1 Retro High OG 'Chicago' brings back Michael Jordan’s legendary 1985 silhouette in the classic red, white, and black colorway that defined sneaker culture.",
-          "details": "Premium leather upper, cushioned Air midsole, and rubber outsole for durability. Includes classic Wings logo, Nike Air tongue branding, and perforated toe box for breathability.",
-          "quantity": 1
+          "address": {
+            "firstName": "gvrg",
+            "lastName": "bvhc",
+            "address": "home (H) , Street, District, State",
+            "contact": "1231544656",
+            "city": "District",
+            "postalCode": "779894",
+            "paymentMode": "Cash on Delivery"
+          },
+          "paymentMode": "Cash on Delivery",
+          "total": 448.7792,
+          "status": "Processing"
+        },
+        {
+          "id": 1758540229023,
+          "items": [
+            {
+              "id": "22",
+              "name": "Louis Vuitton Air Force 1 Low 'Virgil Abloh - White/Green'",
+              "category": "Nike Airforce",
+              "price": 400,
+              "rating": 5,
+              "reviews": 2500,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/18769029_40595644_2048-scaled.jpg",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/10/18769029_40597191_2048.jpg-scaled.webp",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "7",
+                  "inStock": true
+                }
+              ],
+              "description": "The Louis Vuitton x Nike Air Force 1 Low is a special collaboration between the storied high fashion house and Nike that was directed by the late Virgil Abloh. Produced by Louis Vuitton, Nike, and Abloh in 2022, this low-top sneaker features a two-tone colour block design, in green and white, that replicates the original Nike Dunk colourways from 1985.",
+              "details": "Leather upper with perforations, Nike Air cushioning in the sole, and pivot-circle rubber outsole for iconic traction.",
+              "selectedSize": "7",
+              "quantity": 1
+            },
+            {
+              "id": "22",
+              "name": "Louis Vuitton Air Force 1 Low 'Virgil Abloh - White/Green'",
+              "category": "Nike Airforce",
+              "price": 400,
+              "rating": 5,
+              "reviews": 2500,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/18769029_40595644_2048-scaled.jpg",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/10/18769029_40597191_2048.jpg-scaled.webp",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "8",
+                  "inStock": true
+                }
+              ],
+              "description": "The Louis Vuitton x Nike Air Force 1 Low is a special collaboration between the storied high fashion house and Nike that was directed by the late Virgil Abloh. Produced by Louis Vuitton, Nike, and Abloh in 2022, this low-top sneaker features a two-tone colour block design, in green and white, that replicates the original Nike Dunk colourways from 1985.",
+              "details": "Leather upper with perforations, Nike Air cushioning in the sole, and pivot-circle rubber outsole for iconic traction.",
+              "selectedSize": "8",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "bsdb",
+            "lastName": "sdbbb",
+            "address": "home (H) , Street, District, State",
+            "contact": "9448165113",
+            "city": "District",
+            "postalCode": "123456",
+            "paymentMode": "Cash on Delivery"
+          },
+          "paymentMode": "Cash on Delivery",
+          "total": 869.99,
+          "status": "Processing"
+        },
+        {
+          "id": 1758540885244,
+          "items": [
+            {
+              "id": "4",
+              "name": "Air Jordan 6 Retro 'Infrared'",
+              "category": "Air Jordan 6",
+              "price": 210,
+              "rating": 5,
+              "reviews": 650,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/INFRARED-1.png",
+              "image2": "https://sneakheads.in/wp-content/uploads/2024/09/IFRARED-2.png",
+              "bestseller": true,
+              "sizes": [
+                {
+                  "name": "10",
+                  "inStock": true
+                }
+              ],
+              "description": "The Air Jordan 6 Retro 'Infrared' revives the sneaker MJ wore during his first championship run, showcasing bold infrared accents on a black nubuck base.",
+              "details": "Includes visible Air-Sole cushioning, translucent outsole, and lace toggle system. Designed for performance and streetwear style.",
+              "selectedSize": "10",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "fbzx",
+            "lastName": "xgfn",
+            "address": "home (H) , Street, District, State",
+            "contact": "1438378384",
+            "city": "District",
+            "postalCode": "779894",
+            "paymentMode": "Card Payment"
+          },
+          "paymentMode": "Card Payment",
+          "total": 232.79000000000002,
+          "status": "Processing"
         }
       ],
-      "orders": [],
       "createdAt": "date",
       "isBlocked": false,
-      "wishList": []
-    },
-    {
-      "id": "717d",
-      "name": "fazal",
-      "email": "fazalbkabeer@gmail.com",
-      "role": "user",
-      "password": "147",
-      "cart": [],
       "wishList": [],
-      "orders": [],
-      "createdAt": "date",
-      "isBlocked": false
-    },
-    {
-      "id": "b9c1",
-      "name": "anu",
-      "email": "anu@fake.com",
-      "role": "user",
-      "password": "789",
-      "cart": [
-        {
-          "id": 11,
-          "name": "Air Jordan 4 Retro 'Black Cat'",
-          "category": "Air Jordan 4s",
-          "price": 225,
-          "rating": 5,
-          "reviews": 845,
-          "image": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617121_2048.jpg-scaled.webp",
-          "image2": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617131_2048.jpg-scaled.webp",
-          "bestseller": true,
-          "sizes": [
-            {
-              "name": "7",
-              "inStock": true
-            },
-            {
-              "name": "7.5",
-              "inStock": true
-            },
-            {
-              "name": "8",
-              "inStock": false
-            },
-            {
-              "name": "8.5",
-              "inStock": true
-            },
-            {
-              "name": "9",
-              "inStock": true
-            },
-            {
-              "name": "10",
-              "inStock": true
-            },
-            {
-              "name": "11",
-              "inStock": false
-            }
-          ],
-          "description": "The Air Jordan 4 Retro 'Black Cat' channels stealthy style with an all-black nubuck design.",
-          "details": "Equipped with visible Air cushioning, mesh panels, and tonal Jumpman branding. Sleek and versatile for everyday wear.",
-          "quantity": 1
-        }
-      ],
-      "wishList": [],
-      "orders": [],
-      "createdAt": "date",
-      "isBlocked": false
+      "shipmentAddress": {
+        "firstName": "fbzx",
+        "lastName": "xgfn",
+        "address": "home (H) , Street, District, State",
+        "contact": "1438378384",
+        "city": "District",
+        "postalCode": "779894",
+        "paymentMode": "Card Payment"
+      }
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Air Jordan 1 Highs"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Air Jordan 1 Lows"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Air Jordan 4s"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Air Jordan 6"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Air Jordan 7"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Nike Airforce"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Nike Dunk"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Air Max"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Air Jordan 1 Retro High OG 'Chicago'",
       "category": "Air Jordan 1 Highs",
       "price": 199.99,
@@ -250,7 +317,7 @@
       "details": "Premium leather upper, cushioned Air midsole, and rubber outsole for durability. Includes classic Wings logo, Nike Air tongue branding, and perforated toe box for breathability."
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Air Jordan 1 Low 'Bred Toe'",
       "category": "Air Jordan 1 Lows",
       "price": 129.99,
@@ -293,7 +360,7 @@
       "details": "Features premium leather construction, iconic Jordan branding, padded collar, and Air cushioning in the sole for comfort."
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Air Jordan 4 Retro 'White Cement'",
       "category": "Air Jordan 4s",
       "price": 220,
@@ -336,7 +403,7 @@
       "details": "Equipped with mesh panels, visible Air-Sole cushioning, and TPU wings for lockdown support. Includes Jumpman logo on heel."
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Air Jordan 6 Retro 'Infrared'",
       "category": "Air Jordan 6",
       "price": 210,
@@ -379,7 +446,7 @@
       "details": "Includes visible Air-Sole cushioning, translucent outsole, and lace toggle system. Designed for performance and streetwear style."
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Air Jordan 7 Retro 'Cardinal 2022'",
       "category": "Air Jordan 7",
       "price": 200,
@@ -422,7 +489,7 @@
       "details": "Built with perforations for breathability, neoprene inner sleeve for snug fit, and durable rubber outsole with geometric traction."
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Billie Ellish Air Force 1 Low 'Triple White'",
       "category": "Nike Airforce",
       "price": 110,
@@ -465,7 +532,7 @@
       "details": "Constructed with recycled materials, foam midsole with Nike Air cushioning, and Billie’s signature logo details."
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Nike Dunk Low 'Panda'",
       "category": "Nike Dunk",
       "price": 120,
@@ -508,7 +575,7 @@
       "details": "Smooth leather overlays, padded tongue and collar, and classic Dunk cupsole with pivot-circle traction pattern."
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Nike Air Max 90 'Infrared'",
       "category": "Air Max",
       "price": 140,
@@ -551,7 +618,7 @@
       "details": "Features visible Max Air cushioning in the heel, foam midsole for comfort, and durable Waffle outsole."
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Air Jordan 1 Retro High OG 'University Blue'",
       "category": "Air Jordan 1 Highs",
       "price": 200,
@@ -594,7 +661,7 @@
       "details": "White leather base with University Blue suede overlays, Nike Air branding on tongue, and encapsulated Air-Sole cushioning."
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Air Jordan 1 Low 'UNC'",
       "category": "Air Jordan 1 Lows",
       "price": 130,
@@ -637,7 +704,7 @@
       "details": "Leather construction with iconic Wings logo on heel, padded low-cut collar, and lightweight cushioning."
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Air Jordan 4 Retro 'Black Cat'",
       "category": "Air Jordan 4s",
       "price": 225,
@@ -680,7 +747,7 @@
       "details": "Equipped with visible Air cushioning, mesh panels, and tonal Jumpman branding. Sleek and versatile for everyday wear."
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Air Jordan 4 Retro 'Military Black'",
       "category": "Air Jordan 4s",
       "price": 220,
@@ -723,7 +790,7 @@
       "details": "White leather upper, TPU wings, visible Air-Sole unit, and herringbone rubber outsole for traction."
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Air Jordan 6 Retro 'Cactus Jack'",
       "category": "Air Jordan 6",
       "price": 210,
@@ -766,7 +833,7 @@
       "details": "Suede upper, glow-in-the-dark outsole, stash pocket on ankle, and co-branded Cactus Jack details."
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Air Jordan 7 Retro 'Citrus'",
       "category": "Air Jordan 7",
       "price": 200,
@@ -809,7 +876,7 @@
       "details": "Features neoprene inner bootie, perforated overlays, and geometric outsole pattern for grip."
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Nike Air Force 1 '07 White'",
       "category": "Nike Airforce",
       "price": 115,
@@ -852,7 +919,7 @@
       "details": "Leather upper, Nike Air cushioning in midsole, and durable rubber outsole with pivot-circle traction."
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Nike Air Force 1 Low 'Skeleton Black'",
       "category": "Nike Airforce",
       "price": 125,
@@ -895,7 +962,7 @@
       "details": "Features oversized tongue labels, Nike Air cushioning, and rubber outsole for traction."
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Air Jordan 5 Retro 'Fire Red 2020'",
       "category": "Air Jordan 5",
       "price": 200,
@@ -938,7 +1005,7 @@
       "details": "Mesh side panels, reflective tongue, and visible Air-Sole cushioning. Includes lace lock system and shark-tooth midsole design."
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Nike Air Max 'Terrascape 90'",
       "category": "Air Max",
       "price": 170,
@@ -981,7 +1048,7 @@
       "details": "Full-length visible Max Air cushioning, synthetic and mesh upper, and reflective piping for standout style."
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "SB Dunk Low 'Neckface'",
       "category": "Nike Dunk",
       "price": 210,
@@ -1024,7 +1091,7 @@
       "details": "Includes holographic eye logo, responsive Zoom Air cushioning, and panther paw-inspired outsole design."
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "SB Dunk Low 'Why So Sad'",
       "category": "Nike Dunk",
       "price": 135,
@@ -1067,7 +1134,7 @@
       "details": "Premium leather upper, foam midsole for comfort, and rubber outsole for traction. Features classic Dunk design lines."
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "Air Jordan 1 Retro High OG 'LA To Chicago'",
       "category": "Air Jordan 1",
       "price": 240,
@@ -1110,7 +1177,7 @@
       "details": "Durable leather construction, Air-Sole cushioning, and unique multilingual outsole text showcasing Jordan's global impact."
     },
     {
-      "id": 22,
+      "id": "22",
       "name": "Louis Vuitton Air Force 1 Low 'Virgil Abloh - White/Green'",
       "category": "Nike Airforce",
       "price": 400,
@@ -1153,7 +1220,7 @@
       "details": "Leather upper with perforations, Nike Air cushioning in the sole, and pivot-circle rubber outsole for iconic traction."
     },
     {
-      "id": 23,
+      "id": "23",
       "name": "Air Jordan 4 'Red Thunder'",
       "category": "Air Jordan 4",
       "price": 210,
@@ -1196,7 +1263,7 @@
       "details": "Carbon fiber shank plate, Zoom Air cushioning, and premium leather overlays. Includes metallic silver eyelets for detail."
     },
     {
-      "id": 24,
+      "id": "24",
       "name": "Dunk Low 'What the Duck University of Oregon Alternate PE'",
       "category": "Nike Dunk",
       "price": 130,
@@ -1239,7 +1306,7 @@
       "details": "Premium leather overlays, cushioned midsole, and classic Dunk outsole with pivot-point traction."
     },
     {
-      "id": 25,
+      "id": "25",
       "name": "Air Jordan 1 Low SE 'Concord'",
       "category": "Air Jordan 1",
       "price": 220,
@@ -1282,7 +1349,7 @@
       "details": "Patent leather mudguard, carbon fiber plate, full-length Air-Sole cushioning, and translucent outsole."
     },
     {
-      "id": 26,
+      "id": "26",
       "name": "SB Dunk Low 'What The P-Rod'",
       "category": "Nike Dunk",
       "price": 135,
@@ -1325,7 +1392,7 @@
       "details": "Constructed with smooth leather, foam midsole, and rubber outsole with pivot-point traction for classic Dunk performance."
     },
     {
-      "id": 27,
+      "id": "27",
       "name": "Air Max 90 Retro 'Bacon'",
       "category": "Air Max",
       "price": 200,
@@ -1368,7 +1435,7 @@
       "details": "Sleek leather upper, Zoom Air cushioning, and iconic Ferrari-style Jumpman shield logo on the sides."
     },
     {
-      "id": 28,
+      "id": "28",
       "name": "SB Dunk Low Pro 'Elephant'",
       "category": "Nike Dunk",
       "price": 160,

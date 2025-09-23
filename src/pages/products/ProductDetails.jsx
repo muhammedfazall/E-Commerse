@@ -1,25 +1,29 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext, AuthContext } from "../../context/Context";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
 
 export default function ProductDetails() {
-  const [product, setProduct] = useState(null);
-  const { id } = useParams();
   const { products, addToCart, wishList, addToWishList, removeFromWishList } =
     useContext(ProductContext);
   const { user } = useContext(AuthContext);
+
+  const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (products.length > 0) {
-      const found = products.find((p) => p.id === Number(id));
+      console.log("Products:", products);
+      const found = products.find((p) => p.id === String(id));
+      console.log("Found product:", found);
       setProduct(found || null);
     }
   }, [id, products]);
@@ -28,36 +32,48 @@ export default function ProductDetails() {
     if (!user) {
       alert("User not Logged in");
       navigate("/login", { state: { from: location.pathname } });
-    } else {
-      addToCart(product);
-      alert('Added to Cart!')
+      return;
     }
+    if (!selectedSize) {
+    alert("Please select a size before adding to cart");
+    return;
+  }
+
+  const itemToAdd = {
+    ...product,
+    sizes:product.sizes.filter((s)=>s.name === selectedSize),
+    selectedSize,
+    quantity:1
+  }
+
+  addToCart(itemToAdd, selectedSize);
+  alert("Added to Cart")
   };
 
-  const isInWishList = product
-    ? wishList.some((item) => item.id === product.id)
-    : false;
+  const isInWishList = product ? wishList.includes(product.id) : false;
 
   const handleWishList = () => {
-    if (!user) {
-      alert("User not Logged in");
-      navigate("/login", { state: { from: location.pathname } });
-    } else {
-      isInWishList ? removeFromWishList(product) : addToWishList(product);
-    }
-  };
+  if (!user) {
+    alert("User not Logged in");
+    navigate("/login", { state: { from: location.pathname } });
+  } else {
+    isInWishList
+      ? removeFromWishList(product.id)
+      : addToWishList(product.id);
+  }
+};
+
 
   return (
     <div>
       {product ? (
         <div>
-
           <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-          <div className="flex gap-4">
-            <img className="w-85" src={product.image} alt={product.name} />
-            <img className="w-85" src={product.image2} alt={product.name} />
-          </div>
+              <div className="flex gap-4">
+                <img className="w-85" src={product.image} alt={product.name} />
+                <img className="w-85" src={product.image2} alt={product.name} />
+              </div>
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 {product.name}
               </h1>
@@ -68,35 +84,46 @@ export default function ProductDetails() {
               <p className="text-3xl tracking-tight text-gray-900">{`$${product.price}`}</p>
 
               <div className="mt-10">
-
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-black hover:text-gray-700"
-                    >
+                    <Link className="text-sm font-medium text-black hover:text-gray-700">
                       Size guide
-                    </a>
+                    </Link>
                   </div>
 
                   <fieldset aria-label="Choose a size" className="mt-4">
                     <div className="grid grid-cols-4 gap-3">
                       {product.sizes.map((size) => (
                         <label
-                          key={size.id}
+                          key={size.name}
                           aria-label={size.name}
-                          className="group relative flex items-center justify-center rounded-md border border-gray-300 bg-white p-3 has-checked:border-gray-600 has-checked:bg-gray-600 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-gray-600 has-disabled:border-gray-400 has-disabled:bg-gray-200 has-disabled:opacity-25"
+                          className={`group relative flex items-center justify-center p-3 border-3 
+          ${
+            selectedSize === size.name
+              ? "border-gray-600 bg-black"
+              : "border-gray-300 bg-white"
+          }
+          ${
+            !size.inStock ? "opacity-50" : "cursor-pointer  hover:border-b-black" 
+          }`}
                         >
                           <input
-                            defaultValue={size.id}
-                            defaultChecked={size === product.sizes[2]}
+                            value={size.name}
+                            checked={selectedSize === size.name}
+                            onChange={(e) => setSelectedSize(e.target.value)}
                             name="size"
                             type="radio"
                             disabled={!size.inStock}
-                            className="absolute inset-0 appearance-none focus:outline-none disabled:cursor-not-allowed"
+                            className="absolute inset-0 appearance-none focus:outline-none cursor-pointer disabled:cursor-not-allowed"
                           />
-                          <span className="text-sm font-medium text-gray-900 uppercase group-has-checked:text-white">
+                          <span
+                            className={`text-sm font-medium uppercase ${
+                              selectedSize === size.name
+                                ? "text-white"
+                                : "text-gray-900"
+                            }`}
+                          >
                             {size.name}
                           </span>
                         </label>
@@ -104,25 +131,29 @@ export default function ProductDetails() {
                     </div>
                   </fieldset>
                 </div>
-
+                <div className="flex justify-between">
                 <button
                   onClick={handleAddToCart}
-                  className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-                >
+                  disabled={!selectedSize}
+                  className={`mt-4 px-4 py-3 border-3 ${
+                    !selectedSize ? "bg-gray-300 text-white border-gray-100 cursor-not-allowed" : "bg-black text-white cursor-pointer border-gray-600"
+                  }`}
+                  >
                   Add to Cart
                 </button>
-                <button onClick={handleWishList} className="ml-4">
+
+                <button onClick={handleWishList} className="ml-4 mt-4 cursor-pointer">
                   {isInWishList ? (
-                    <HeartSolid className="h-8 w-8 text-red-500" />
+                    <HeartSolid className="h-10 w-10 text-red-500" />
                   ) : (
-                    <HeartOutline className="h-8 w-8 text-gray-400 hover:text-red-500" />
+                    <HeartOutline className="h-10 w-10 text-gray-400 hover:text-red-500" />
                   )}
                 </button>
+                  </div>
               </div>
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
-
               <div>
                 <h3 className="sr-only">Description</h3>
 
