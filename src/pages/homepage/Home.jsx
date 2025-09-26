@@ -30,7 +30,7 @@ export default function Home() {
       <section className="relative h-screen flex items-end pb-16">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://i.pinimg.com/1200x/06/a7/5a/06a75a260362a0bda1da73b1bb443a82.jpg"
+            src="https://wallpapercave.com/wp/wp5633257.jpg"
             alt="Hero"
             className="w-full h-full object-cover"
           />
@@ -265,7 +265,7 @@ export default function Home() {
       <div className="h-24"></div>
 
           <div className="flex justify-center">
-              <p className="text-7xl font-bold">Just Do It.</p>
+              <p className="text-7xl font-bold">JUST DO IT.</p>
           </div>
 
       <div className="h-24"></div>

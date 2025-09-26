@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { userApi } from "../api";
+import { AuthContext } from "../context/Context";
 
 export default function AllOrders() {
   const [orders, setOrders] = useState([]);
+  const {setUser} = useContext(AuthContext)
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
@@ -33,27 +35,40 @@ export default function AllOrders() {
   }, []);
 
   const handleStatusChange = async (orderId, newStatus) => {
-    try {
-      const order = orders.find((o) => o.id === orderId);
-      if (!order) return;
+  try {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return;
 
-      await axios.patch(`${userApi}/${order.userId}`, {
-        orders: orders
-          .filter((o) => o.userId === order.userId)
-          .map((o) =>
-            o.id === orderId ? { ...o, status: newStatus } : o
-          ),
-      });
-
-      setOrders(
-        orders.map((o) =>
+  
+    await axios.patch(`${userApi}/${order.userId}`, {
+      orders: orders
+        .filter((o) => o.userId === order.userId)
+        .map((o) =>
           o.id === orderId ? { ...o, status: newStatus } : o
-        )
-      );
-    } catch (err) {
-      console.error("Error updating status:", err);
-    }
-  };
+        ),
+    });
+
+    setOrders((prevOrders) =>
+      prevOrders.map((o) =>
+        o.id === orderId ? { ...o, status: newStatus } : o
+      )
+    );
+
+    setUser((prevUser) =>
+      prevUser && prevUser.id === order.userId
+        ? {
+            ...prevUser,
+            orders: prevUser.orders.map((o) =>
+              o.id === orderId ? { ...o, status: newStatus } : o
+            ),
+          }
+        : prevUser
+    );
+  } catch (err) {
+    console.error("Error updating status:", err);
+  }
+};
+
 
   const filteredOrders = orders.filter(order => {
     const matchesSearch = order.id.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -86,7 +101,7 @@ export default function AllOrders() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+ 
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Orders Management</h1>
@@ -119,7 +134,6 @@ export default function AllOrders() {
         </div>
       </div>
 
-      {/* Orders Table */}
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -228,7 +242,6 @@ export default function AllOrders() {
         )}
       </div>
 
-      {/* Order Details Modal */}
       {selectedOrder && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -246,7 +259,7 @@ export default function AllOrders() {
               </div>
 
               <div className="space-y-6">
-                {/* Order Summary */}
+
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Customer Information</h4>
@@ -273,7 +286,6 @@ export default function AllOrders() {
                   </div>
                 </div>
 
-                {/* Order Items */}
                 <div>
                   <h4 className="font-medium text-gray-900 mb-3">Order Items</h4>
                   <div className="space-y-3">
@@ -297,7 +309,6 @@ export default function AllOrders() {
                   </div>
                 </div>
 
-                {/* Order Total */}
                 <div className="border-t pt-4">
                   <div className="flex justify-between items-center text-lg font-semibold">
                     <span>Total Amount:</span>

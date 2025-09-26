@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/Context";
-import Header from "../homepage/Header";
+import { showToast } from "../../lib/toast";
 import { useState, useContext } from "react";
 
 export default function Login() {
@@ -23,16 +23,31 @@ export default function Login() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
+  
+  try {
     const result = await login(user);
     if (result.success) {
-      alert("Login SuccessFull");
-      navigate(from, { replace: true });
+      showToast.success("Logged in successfully");
+      
+      if (result.user.role === "admin") {
+        navigate("/admin/dashboard", { replace: true });
+      } else {
+        navigate(from, { replace: true });
+      }
     } else {
       setError(result.message);
+      showToast.error(result.message);
     }
-  };
+  } catch (error) {
+    const errorMessage = error.message || "Login failed. Please try again.";
+    setError(errorMessage);
+    showToast.error(errorMessage);
+  }
+};
+
 
   return (
     <>

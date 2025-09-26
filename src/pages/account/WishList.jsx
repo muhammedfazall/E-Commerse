@@ -16,7 +16,7 @@ export default function WishList() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {wishList.map((productId) => {
             const product = products.find((p) => p.id === productId);
-            if (!product) return null; // Product not loaded yet
+            if (!product) return null;
 
             return (
               <div

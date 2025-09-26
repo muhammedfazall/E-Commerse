@@ -4,10 +4,113 @@
       "id": "845d",
       "name": "finu",
       "email": "fin@fake.com",
-      "role": "User",
+      "role": "user",
       "password": "123",
       "cart": [],
       "orders": [
+        {
+          "id": "693334b8-54f9-4439-a209-7f4cf58d1fdd",
+          "items": [
+            {
+              "id": "27",
+              "name": "Air Max 90 Retro 'Bacon'",
+              "price": 200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/15819560_32792869_2048.jpg-scaled.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "fin",
+            "lastName": "ryder",
+            "address": "home (H) , Street, District, State",
+            "contact": "1234567890",
+            "city": "District",
+            "postalCode": "779894",
+            "paymentMode": "UPI"
+          },
+          "paymentMode": "UPI",
+          "total": 221.99,
+          "status": "Shipped",
+          "date": "2025-09-26T02:16:42.914Z",
+          "userId": "845d",
+          "userName": "finu",
+          "userEmail": "fin@fake.com"
+        },
+        {
+          "id": "453269ac-35bb-4628-8299-810e0215aa7a",
+          "items": [
+            {
+              "id": "12",
+              "name": "Air Jordan 4 Retro 'Military Black'",
+              "price": 220,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/18376756_39863773_2048.jpg-767x1024.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            },
+            {
+              "id": "14",
+              "name": "Air Jordan 7 Retro 'Citrus'",
+              "price": 200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/18947413_44392281_2048-767x1024.jpg",
+              "selectedSize": "10",
+              "quantity": 1
+            },
+            {
+              "id": "16",
+              "name": "Nike Air Force 1 Low 'Skeleton Black'",
+              "price": 125,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/14642747_22854268_2048.jpg-scaled.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "fin",
+            "lastName": "ryder",
+            "address": "home (H) , Street, District, State",
+            "contact": "9448165113",
+            "city": "District",
+            "postalCode": "125456",
+            "paymentMode": "Card Payment"
+          },
+          "paymentMode": "Card Payment",
+          "total": 594.59,
+          "status": "Cancelled",
+          "date": "2025-09-26T02:14:13.341Z",
+          "userId": "845d",
+          "userName": "finu",
+          "userEmail": "fin@fake.com"
+        },
+        {
+          "id": "0a876d76-a9ca-4e51-8432-b0e24c6921b0",
+          "items": [
+            {
+              "id": "9",
+              "name": "Air Jordan 1 Retro High OG 'University Blue'",
+              "price": 200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/15957834_30928142_2048.jpg-scaled.webp",
+              "selectedSize": "8",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "fin",
+            "lastName": "ryder",
+            "address": "home (H) , Street, District, State",
+            "contact": "9448165113",
+            "city": "District",
+            "postalCode": "123454",
+            "paymentMode": "Cash on Delivery"
+          },
+          "paymentMode": "Cash on Delivery",
+          "total": 221.99,
+          "status": "Shipped",
+          "date": "2025-09-26T01:53:42.946Z",
+          "userId": "845d",
+          "userName": "finu",
+          "userEmail": "fin@fake.com"
+        },
         {
           "id": 1758627445433,
           "items": [
@@ -39,7 +142,7 @@
           },
           "paymentMode": "Card Payment",
           "total": 589.19,
-          "status": "Processing",
+          "status": "Delivered",
           "date": "2025-09-23T11:37:25.433Z",
           "userId": "845d",
           "userName": "finu",
@@ -47,7 +150,7 @@
         }
       ],
       "createdAt": "date",
-      "isBlocked": true,
+      "isBlocked": false,
       "wishList": [],
       "shipmentAddress": {
         "firstName": "fin",
@@ -55,24 +158,85 @@
         "address": "home (H) , Street, District, State",
         "contact": "1234567890",
         "city": "District",
-        "postalCode": "123454",
-        "paymentMode": "Card Payment"
-      },
-      "isBlicked": true
+        "postalCode": "779894",
+        "paymentMode": "UPI"
+      }
     },
     {
-      "id": "8792",
-      "name": "faz",
-      "email": "faz@fake.com",
-      "role": "Admin",
-      "password": "456",
-      "createdAt": "2025-09-25T07:12:55.980Z",
-      "isBlocked": true,
+      "id": "9ae2",
+      "name": "admin",
+      "email": "admin@exmp.com",
+      "role": "admin",
+      "password": "147",
+      "cart": [],
+      "wishList": [],
+      "orders": [],
+      "createdAt": "2025-09-26",
+      "isBlocked": false
+    },
+    {
+      "id": "57f8",
+      "name": "ansil",
+      "email": "ansil@fake.com",
+      "role": "User",
+      "password": "123",
+      "cart": [],
+      "wishList": [],
+      "orders": [
+        {
+          "id": "07676e37-ce02-4cf4-b7ab-640d867e880f",
+          "items": [
+            {
+              "id": "11",
+              "name": "Air Jordan 4 Retro 'Black Cat'",
+              "price": 225,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617121_2048.jpg-scaled.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "ansil",
+            "lastName": "dfs",
+            "address": "home (H) , Street, District, State",
+            "contact": "9448165113",
+            "city": "District",
+            "postalCode": "123456",
+            "paymentMode": "Cash on Delivery"
+          },
+          "paymentMode": "Cash on Delivery",
+          "total": 248.99,
+          "status": "Processing",
+          "date": "2025-09-26T11:34:36.586Z",
+          "userId": "57f8",
+          "userName": "ansil",
+          "userEmail": "ansil@fake.com"
+        }
+      ],
+      "createdAt": "2025-09-26",
+      "isBlocked": false,
+      "shipmentAddress": {
+        "firstName": "ansil",
+        "lastName": "dfs",
+        "address": "home (H) , Street, District, State",
+        "contact": "9448165113",
+        "city": "District",
+        "postalCode": "123456",
+        "paymentMode": "Cash on Delivery"
+      }
+    },
+    {
+      "id": "4432",
+      "name": "dev",
+      "email": "dev@fake.com",
+      "role": "User",
+      "password": "123",
+      "createdAt": "2025-09-26T14:24:17.782Z",
+      "isBlocked": false,
       "cart": [],
       "orders": [],
       "wishList": [],
-      "shipmentAddress": null,
-      "isBlicked": true
+      "shipmentAddress": null
     }
   ],
   "categories": [
@@ -114,7 +278,7 @@
       "id": "1",
       "name": "Air Jordan 1 Retro High OG 'Chicago'",
       "category": "Air Jordan 1 Highs",
-      "price": 199.99,
+      "price": "199.97",
       "rating": 5,
       "reviews": 520,
       "image": "https://sneakheads.in/wp-content/uploads/2025/01/13157697_21516295_2048-scaled.jpg",
@@ -131,7 +295,7 @@
         },
         {
           "name": "8",
-          "inStock": false
+          "inStock": true
         },
         {
           "name": "8.5",
@@ -155,7 +319,7 @@
     },
     {
       "id": "2",
-      "name": "Air Jordan 1 Low 'Bred Toe'",
+      "name": "Air Jordan 1 Low 'Bred e'",
       "category": "Air Jordan 1 Lows",
       "price": 129.99,
       "rating": "5",

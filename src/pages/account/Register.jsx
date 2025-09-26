@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { userApi } from "../../api";
+import { showToast } from "../../lib/toast";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function Register() {
         e.preventDefault();
         axios.post(userApi,newUser);
         console.log("newUser:",newUser);
-        alert("Registration Successfull");
+        showToast.success("Registration Successfull");
         navigate('/login');
         }
        

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext, AuthContext } from "../../context/Context";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
+import { showToast } from "../../lib/toast";
 
 export default function ProductDetails() {
   const { products, addToCart, wishList, addToWishList, removeFromWishList } =
@@ -30,12 +31,12 @@ export default function ProductDetails() {
 
   const handleAddToCart = () => {
     if (!user) {
-      alert("User not Logged in");
+      showToast.error("User not Logged in");
       navigate("/login", { state: { from: location.pathname } });
       return;
     }
     if (!selectedSize) {
-    alert("Please select a size before adding to cart");
+    showToast.error("Please select a size before adding to cart");
     return;
   }
 
@@ -47,14 +48,14 @@ export default function ProductDetails() {
   }
 
   addToCart(itemToAdd, selectedSize);
-  alert("Added to Cart")
+  showToast.success("Added to Cart")
   };
 
   const isInWishList = product ? wishList.includes(product.id) : false;
 
   const handleWishList = () => {
   if (!user) {
-    alert("User not Logged in");
+    showToast.error("User not Logged in");
     navigate("/login", { state: { from: location.pathname } });
   } else {
     isInWishList

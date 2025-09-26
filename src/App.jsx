@@ -1,21 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import { Toaster } from 'sonner';
 import AuthProvider from "./context/AuthProvider";
 import ProductProvider from "./context/ProductProvider";
-import UserRoutes from "./Routes/UserRoutes";
-import AdminRoutes from "./Routes/AdminRoutes";
+import MainRoutes from "./Routes/MainRoutes";
 
 function App() {
   return (
     <AuthProvider>
       <ProductProvider>
-        <Routes>
-
-          {/* User side */}
-          <Route path="/*" element={<UserRoutes/>} />
-
-          {/* Admin side */}
-          <Route path="/admin/*" element={<AdminRoutes/>} />
-        </Routes>
+        <MainRoutes/>
+        <Toaster position="top-center" richColors closeButton />
       </ProductProvider>
     </AuthProvider>
   );

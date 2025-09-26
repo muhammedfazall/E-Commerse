@@ -89,13 +89,11 @@ export default function ProductProvider({ children }) {
 
   const addToCart = (product, size) => {
   setCart((prev) => {
-    // check if same product + same size already exists
     const existingItem = prev.find(
       (item) => item.id === product.id && item.selectedSize === size
     );
 
     if (existingItem) {
-      // if found, just increase quantity
       return prev.map((item) =>
         item.id === product.id && item.selectedSize === size
           ? { ...item, quantity: item.quantity + 1 }

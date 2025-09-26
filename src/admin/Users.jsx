@@ -88,17 +88,13 @@ export default function Users() {
   }catch(err){
     console.log("Error adding user",err);
   }
-
-    setUsers([...users, user]);
-    setNewUser({ name: '', email: '', role: 'User', password: '', confirmPassword: '' });
-    setShowAddForm(false);
-  };
+}
 
 
 
   return (
     <div className="space-y-6">
-      {/* Header with Search and Add Button */}
+
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Users Management</h1>
@@ -129,7 +125,6 @@ export default function Users() {
         </div>
       </div>
 
-      {/* Users Table */}
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -170,7 +165,7 @@ export default function Users() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    user.role === 'Admin' 
+                    user.role === 'admin' 
                       ? 'bg-purple-100 text-purple-800' 
                       : 'bg-green-100 text-green-800'
                   }`}>
@@ -179,12 +174,13 @@ export default function Users() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    user.isBlocked
-                      ? 'bg-green-100 text-green-800' 
-                      : 'bg-red-100 text-red-800'
-                  }`}>
-                    {user.isBlocked ? 'Blocked' : 'Active'}
-                  </span>
+  user.isBlocked
+    ? 'bg-red-100 text-red-800'
+    : 'bg-green-100 text-green-800'
+}`}>
+  {user.isBlocked ? 'Blocked' : 'Active'}
+</span>
+
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {user.createdAt ? user.createdAt.split("T")[0] : "N/A"}
@@ -213,7 +209,6 @@ export default function Users() {
         </table>
       </div>
 
-      {/* Add User Modal */}
       {showAddForm && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
@@ -258,7 +253,7 @@ export default function Users() {
                     onChange={(e) => setNewUser({...newUser, role: e.target.value})}
                   >
                     <option value="User">User</option>
-                    <option value="Admin">Admin</option>
+                    <option value="admin">Admin</option>
                   </select>
                 </div>
                 <div>
@@ -302,7 +297,6 @@ export default function Users() {
         </div>
       )}
 
-      {/* User Details Modal */}
       {selectedUser && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
@@ -333,7 +327,8 @@ export default function Users() {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-500">Status</label>
-                  <p className="text-gray-900">{selectedUser.isBlocked}</p>
+                  <p className="text-gray-900">{selectedUser.isBlocked ? 'Blocked' : 'Active'}</p>
+
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-500">Join Date</label>

@@ -1,57 +1,128 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState, useRef, useEffect } from "react";
+import { AuthContext } from "../context/Context";
 
 export default function AdminLayout() {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const profileRef = useRef(null);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+    setIsProfileOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Top Navbar */}
-      <header className="bg-gray-900 text-white shadow-lg">
+
+      <header className="bg-black text-white shadow-lg fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold text-blue-400">SNEACAVE</h1>
-            <div className="h-8 w-px bg-gray-600"></div>
-            <h2 className="text-xl font-semibold">Admin Panel</h2>
+            <h1 className="text-4xl font-bold text-gray-300">SNEACAVE</h1>
+            <div className="h-8 w-px bg-gray-700"></div>
+            <h2 className="text-xl text-gray-400 font-semibold">Admin Panel</h2>
           </div>
 
-          {/* Admin Profile */}
-          <div className="flex items-center space-x-3">
-            <span className="text-sm text-gray-300">Admin User</span>
+          <div className="flex items-center space-x-3 relative" ref={profileRef}>
+            <div className="text-right hidden sm:block">
+              <span className="text-sm font-medium text-gray-300 block">
+                {user?.name || "Admin User"}
+              </span>
+              <span className="text-xs text-gray-400 block">
+                {user?.email || "admin@example.com"}
+              </span>
+            </div>
+            
             <div className="relative">
-              <button className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+              <button 
+                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors border border-gray-600"
+                onClick={() => setIsProfileOpen(!isProfileOpen)}
+              >
+                {user?.name ? (
+                  <span className="text-gray-300 font-semibold">
+                    {user.name.charAt(0).toUpperCase()}
+                  </span>
+                ) : (
+                  <svg
+                    className="w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                )}
               </button>
+
+              {isProfileOpen && (
+                <div className="absolute right-0 top-12 mt-2 w-48 bg-gray-900 rounded-md shadow-lg py-1 z-50 border border-gray-700">
+                  <div className="px-4 py-2 border-b border-gray-700">
+                    <p className="text-sm font-medium text-gray-200">{user?.name || "Admin User"}</p>
+                    <p className="text-xs text-gray-400 truncate">{user?.email || "admin@example.com"}</p>
+                  </div>
+                  
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+                  >
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
+                    </svg>
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </header>
 
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <aside className="w-64 bg-gray-800 text-white shadow-xl">
-          <nav className="p-4">
+      <div className="flex flex-1 pt-16">
+        {/* Fixed Sidebar */}
+        <aside className="w-64 bg-gray-900 text-white shadow-xl fixed top-16 left-0 bottom-0 z-40 border-r border-gray-800">
+          <nav className="p-4 h-full overflow-y-auto">
             <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-wider text-gray-400 font-semibold px-3 mb-3">
+              <h3 className="text-sm uppercase tracking-wider text-gray-500 font-semibold px-3 mb-3">
                 Main Menu
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <NavLink
                   to="/admin/dashboard"
                   className={({ isActive }) =>
-                    `flex items-center px-3 py-2 rounded-lg transition-all duration-200 ${
+                    `flex items-center px-3 py-3 rounded-lg transition-all duration-200 border ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        ? "bg-gray-800 text-white border-gray-600 shadow-lg"
+                        : "text-gray-400 hover:bg-gray-800 hover:text-gray-200 border-transparent hover:border-gray-700"
                     }`
                   }
                 >
@@ -74,10 +145,10 @@ export default function AdminLayout() {
                 <NavLink
                   to="/admin/users"
                   className={({ isActive }) =>
-                    `flex items-center px-3 py-2 rounded-lg transition-all duration-200 ${
+                    `flex items-center px-3 py-3 rounded-lg transition-all duration-200 border ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        ? "bg-gray-800 text-white border-gray-600 shadow-lg"
+                        : "text-gray-400 hover:bg-gray-800 hover:text-gray-200 border-transparent hover:border-gray-700"
                     }`
                   }
                 >
@@ -100,10 +171,10 @@ export default function AdminLayout() {
                 <NavLink
                   to="/admin/products"
                   className={({ isActive }) =>
-                    `flex items-center px-3 py-2 rounded-lg transition-all duration-200 ${
+                    `flex items-center px-3 py-3 rounded-lg transition-all duration-200 border ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        ? "bg-gray-800 text-white border-gray-600 shadow-lg"
+                        : "text-gray-400 hover:bg-gray-800 hover:text-gray-200 border-transparent hover:border-gray-700"
                     }`
                   }
                 >
@@ -126,10 +197,10 @@ export default function AdminLayout() {
                 <NavLink
                   to="/admin/orders"
                   className={({ isActive }) =>
-                    `flex items-center px-3 py-2 rounded-lg transition-all duration-200 ${
+                    `flex items-center px-3 py-3 rounded-lg transition-all duration-200 border ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        ? "bg-gray-800 text-white border-gray-600 shadow-lg"
+                        : "text-gray-400 hover:bg-gray-800 hover:text-gray-200 border-transparent hover:border-gray-700"
                     }`
                   }
                 >
@@ -153,9 +224,8 @@ export default function AdminLayout() {
           </nav>
         </aside>
 
-        {/* Main Content */}
-        <main className="flex-1 bg-gray-50">
-          <div className="p-6">
+        <main className="flex-1 bg-gray-100 ml-64 mt-16 min-h-screen">
+          <div className="p-6 h-full">
             <Outlet />
           </div>
         </main>

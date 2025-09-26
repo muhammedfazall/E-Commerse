@@ -1,16 +1,18 @@
 import { AuthContext } from "./Context";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { userApi } from "../api";
 import axios from "axios";
 
 export default function AuthProvider({ children }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+    setIsLoading(false); 
   }, []);
 
   useEffect(() => {
@@ -56,7 +58,16 @@ export default function AuthProvider({ children }) {
   const closeAccount = () => setIsAccountOpen(false);
 
   return (
-    <AuthContext.Provider value={{ user,setUser, login, isAccountOpen, openAccount, closeAccount, logout }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      setUser, 
+      login, 
+      isAccountOpen, 
+      openAccount, 
+      closeAccount, 
+      logout,
+      isLoading 
+    }}>
       {children}
     </AuthContext.Provider>
   );

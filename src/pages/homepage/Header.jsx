@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { AuthContext, ProductContext } from "../../context/Context";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Search from "../products/Search";
+import { showToast } from "../../lib/toast";
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Header() {
 
   const handleCartClick = () => {
     if (!user) {
-      alert("user not logged in");
+      showToast.error("user not logged in");
       navigate("/login", { state: { from: location.pathname } });
     } else {
       openCart();
@@ -23,7 +24,7 @@ export default function Header() {
 
   const handleAccountClick = () => {
     if (!user) {
-      alert("user not logged in");
+      showToast.error("user not logged in");
       navigate("/login", { state: { from: location.pathname } });
     } else {
       openAccount();
@@ -50,7 +51,7 @@ export default function Header() {
           <div className="flex items-center space-x-6">
             <button
               onClick={() => setOpenSearch(!openSearch)}
-              className="hidden lg:block font-medium"
+              className="hidden lg:block font-medium cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

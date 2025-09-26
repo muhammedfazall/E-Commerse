@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { categoriesApi, productsApi } from "../api";
+import { showToast } from "../lib/toast";
 
 const sizesList = ["7", "7.5", "8", "8.5", "9", "10", "11"];
 
@@ -29,11 +30,10 @@ export default function Products() {
     const fetchProductsAndCategories = async () => {
       try {
         setLoading(true);
-        // Fetch products
+  
         const { data: productsData } = await axios.get(`${productsApi}`);
         setProducts(productsData);
 
-        // Fetch categories
         const { data: categoriesData } = await axios.get(`${categoriesApi}`);
         setCategories(categoriesData.map((cat) => cat.name));
       } catch (err) {
@@ -59,7 +59,7 @@ export default function Products() {
         setProducts(products.filter((product) => product.id !== productId));
       } catch (err) {
         console.log("Error deleting product", err);
-        alert("Failed to delete product. Please try again.");
+        showToast.error("Failed to delete product. Please try again.");
       }
     }
   };
@@ -83,7 +83,7 @@ export default function Products() {
       setEditingProduct(null);
     } catch (err) {
       console.log("Error updating product", err);
-      alert("Failed to update product. Please try again.");
+      showToast.error("Failed to update product. Please try again.");
     }
   };
 
@@ -92,7 +92,7 @@ export default function Products() {
     try {
 
       if (!product.name || !product.category || !product.price) {
-      alert("Please fill in all required fields");
+      showToast.error("Please fill in all required fields");
       return;
     }
 
@@ -120,7 +120,7 @@ export default function Products() {
       });
     } catch (err) {
       console.log("Error adding product", err);
-      alert("Failed to add product. Please try again.");
+      showToast.error("Failed to add product. Please try again.");
     }
   };
 
@@ -157,7 +157,7 @@ export default function Products() {
 
   return (
     <div className="space-y-6">
-      {/* Header with Search and Add Button */}
+
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">
@@ -212,7 +212,7 @@ export default function Products() {
         </div>
       </div>
 
-      {/* Products Table */}
+
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -378,7 +378,6 @@ export default function Products() {
         )}
       </div>
 
-      {/* Add Product Modal */}
       {showAddForm && (
         <ProductForm
           product={newProduct}
@@ -391,7 +390,6 @@ export default function Products() {
         />
       )}
 
-      {/* Edit Product Modal */}
       {editingProduct && (
         <ProductForm
           product={editingProduct}
@@ -408,8 +406,6 @@ export default function Products() {
   );
 }
 
-
-// Reusable Product Form Component
 function ProductForm({
   product,
   setProduct,
@@ -448,7 +444,7 @@ function ProductForm({
 
           <form onSubmit={onSubmit} className="space-y-6">
             <div className="grid grid-cols-2 gap-6">
-              {/* Basic Information */}
+
               <div className="space-y-4">
                 <h4 className="font-medium text-gray-900">Basic Information</h4>
 
@@ -556,7 +552,6 @@ function ProductForm({
                 </div>
               </div>
 
-              {/* Images */}
               <div className="space-y-4">
                 <h4 className="font-medium text-gray-900">Product Images</h4>
 
@@ -590,7 +585,6 @@ function ProductForm({
                   />
                 </div>
 
-                {/* Image Previews */}
                 <div className="grid grid-cols-2 gap-3">
                   {product.image && (
                     <div>
@@ -620,7 +614,6 @@ function ProductForm({
               </div>
             </div>
 
-            {/* Size Availability */}
             <div>
               <h4 className="font-medium text-gray-900 mb-3">
                 Size Availability
@@ -647,7 +640,6 @@ function ProductForm({
               </div>
             </div>
 
-            {/* Description & Details */}
             <div className="grid grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -679,7 +671,6 @@ function ProductForm({
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex space-x-3 pt-4 border-t">
               <button
                 type="button"
