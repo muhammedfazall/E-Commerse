@@ -7,12 +7,12 @@ export default function Register() {
     const navigate = useNavigate();
     const [newUser,setNewUser] = useState({name:"",
                                      email:"",
-                                     role:"user",
+                                     role:"User",
                                      password:"",
                                      cart:[],
                                      wishList:[],
                                      orders:[],
-                                     createdAt:"date",
+                                     createdAt:new Date().toISOString().split('T')[0],
                                      isBlocked:false,
                                      })
 

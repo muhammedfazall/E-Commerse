@@ -103,8 +103,16 @@ export default function ProductProvider({ children }) {
       );
     }
 
-    // otherwise add as new line item
-    return [...prev, { ...product, selectedSize: size, quantity: 1 }];
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      selectedSize:size,
+      quantity:1,
+    }
+    
+    return [...prev,cartItem];
   });
 };
 

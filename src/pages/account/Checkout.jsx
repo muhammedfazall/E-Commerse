@@ -41,13 +41,15 @@ export default function Checkout() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     const newOrder = {
-      id: Date.now(),
+      id: crypto.randomUUID(),
       items: cart,
       address: formData,
       paymentMode:formData.paymentMode,
       total,
       status: "Processing",
+      date: new Date().toISOString(),
     };
 
     const updatedUser = {
