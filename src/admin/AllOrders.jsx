@@ -112,7 +112,7 @@ export default function AllOrders() {
             <input
               type="text"
               placeholder="Search orders..."
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:border-transparent w-64"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -123,7 +123,7 @@ export default function AllOrders() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:border-transparent"
           >
             <option value="All">All Status</option>
             <option value="Processing">Processing</option>
@@ -164,7 +164,7 @@ export default function AllOrders() {
                 <tr key={order.id} className="hover:bg-gray-50 transition-colors duration-150">
                   <td className="px-6 py-4">
                     <div>
-                      <div className="text-sm font-semibold text-blue-600">#{order.id}</div>
+                      <div className="text-sm font-semibold text-blue-950">#{order.id}</div>
                       <div className="text-sm text-gray-500">
                         {new Date(order.date || order.createdAt).toLocaleDateString('en-US', {
                           year: 'numeric',
@@ -187,7 +187,7 @@ export default function AllOrders() {
                       <div className="font-medium">{getTotalItems(order.items)} items</div>
                       <button
                         onClick={() => setSelectedOrder(order)}
-                        className="text-blue-600 hover:text-blue-900 text-xs mt-1"
+                        className="text-blue-400 hover:text-blue-900 text-xs mt-1"
                       >
                         View details
                       </button>
@@ -206,7 +206,7 @@ export default function AllOrders() {
                       <select
                         value={order.status}
                         onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                        className="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="text-sm border border-gray-300 rounded-sm px-3 py-1 focus:ring-1 focus:border-transparent"
                       >
                         <option value="Processing">Processing</option>
                         <option value="Shipped">Shipped</option>

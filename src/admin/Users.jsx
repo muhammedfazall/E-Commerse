@@ -105,7 +105,7 @@ export default function Users() {
             <input
               type="text"
               placeholder="Search users..."
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:border-transparent"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -115,7 +115,7 @@ export default function Users() {
           </div>
           <button
             onClick={() => setShowAddForm(true)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+            className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-blue-950 transition-colors flex items-center space-x-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -155,7 +155,7 @@ export default function Users() {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button
                     onClick={() => setSelectedUser(user)}
-                    className="text-blue-600 hover:text-blue-900 font-medium hover:underline"
+                    className="text-gray-900 hover:text-blue-950 font-medium hover:underline"
                   >
                     {user.name}
                   </button>
@@ -230,7 +230,7 @@ export default function Users() {
                   <input
                     type="text"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={newUser.name}
                     onChange={(e) => setNewUser({...newUser, name: e.target.value})}
                   />
@@ -240,7 +240,7 @@ export default function Users() {
                   <input
                     type="email"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={newUser.email}
                     onChange={(e) => setNewUser({...newUser, email: e.target.value})}
                   />
@@ -248,7 +248,7 @@ export default function Users() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
                   <select
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={newUser.role}
                     onChange={(e) => setNewUser({...newUser, role: e.target.value})}
                   >
@@ -261,7 +261,7 @@ export default function Users() {
                   <input
                     type="password"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={newUser.password}
                     onChange={(e) => setNewUser({...newUser, password: e.target.value})}
                   />
@@ -271,7 +271,7 @@ export default function Users() {
                   <input
                     type="password"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={newUser.confirmPassword}
                     onChange={(e) => setNewUser({...newUser, confirmPassword: e.target.value})}
                   />
@@ -280,13 +280,13 @@ export default function Users() {
                   <button
                     type="button"
                     onClick={() => setShowAddForm(false)}
-                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    className="flex-1 px-4 py-2 bg-gray-900 text-white hover:bg-blue-950"
                   >
                     Add User
                   </button>

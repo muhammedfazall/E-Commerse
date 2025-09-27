@@ -43,7 +43,7 @@ export default function Checkout() {
     setIsSubmitting(true);
 
     const newOrder = {
-      id: crypto.randomUUID(),
+      id: Date.now(),
       items: cart,
       address: formData,
       paymentMode: formData.paymentMode,
@@ -86,7 +86,7 @@ export default function Checkout() {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-4 border-b border-gray-100">
                 <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   Shipping Information
@@ -104,7 +104,7 @@ export default function Checkout() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -118,7 +118,7 @@ export default function Checkout() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -134,7 +134,7 @@ export default function Checkout() {
                     placeholder="Enter 10-digit number"
                     value={formData.contact}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                     required
                     maxLength="10"
                     pattern="[0-9]{10}"
@@ -151,7 +151,7 @@ export default function Checkout() {
                     placeholder="Enter your complete address"
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                     required
                   />
                 </div>
@@ -166,7 +166,7 @@ export default function Checkout() {
                       name="city"
                       value={formData.city}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function Checkout() {
                       name="postalCode"
                       value={formData.postalCode}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200"
                       required
                       maxLength="6"
                     />
@@ -205,7 +205,7 @@ export default function Checkout() {
                           key={option.value}
                           className={`flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                             formData.paymentMode === option.value
-                              ? "border-blue-500 bg-blue-50 shadow-sm"
+                              ? "border-blue-900 bg-blue-50 shadow-sm"
                               : "border-gray-200 hover:border-gray-300"
                           }`}
                         >
@@ -228,7 +228,7 @@ export default function Checkout() {
                 <button
                   type="submit"
                   disabled={isSubmitting || cart.length === 0}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none font-semibold text-lg shadow-lg"
+                  className="w-full bg-gradient-to-r from-gray-900 to-purple-950 text-white py-4 px-6 rounded-lg hover:from-blue-950 hover:to-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none font-semibold text-lg shadow-lg"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -339,9 +339,6 @@ export default function Checkout() {
               </h2>
               <p className="text-gray-600 mb-2">
                 Thank you for your purchase. Your order has been placed successfully.
-              </p>
-              <p className="text-sm text-gray-500 mb-6">
-                Order ID: #{crypto.randomUUID().slice(0, 8).toUpperCase()}
               </p>
 
           

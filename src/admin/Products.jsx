@@ -172,7 +172,7 @@ export default function Products() {
             <input
               type="text"
               placeholder="Search products..."
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64"
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:border-transparent w-full sm:w-64"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -192,7 +192,7 @@ export default function Products() {
           </div>
           <button
             onClick={() => setShowAddForm(true)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+            className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-blue-950 transition-colors flex items-center justify-center space-x-2"
           >
             <svg
               className="w-5 h-5"
@@ -418,7 +418,7 @@ function ProductForm({
 }) {
   return (
     <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-semibold">{title}</h3>
@@ -455,7 +455,7 @@ function ProductForm({
                   <input
                     type="text"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={product.name}
                     onChange={(e) =>
                       setProduct({ ...product, name: e.target.value })
@@ -469,7 +469,7 @@ function ProductForm({
                   </label>
                   <select
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={product.category}
                     onChange={(e) =>
                       setProduct({ ...product, category: e.target.value })
@@ -493,7 +493,7 @@ function ProductForm({
                       type="number"
                       step="0.01"
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300"
                       value={product.price}
                       onChange={(e) =>
                         setProduct({ ...product, price: e.target.value })
@@ -509,7 +509,7 @@ function ProductForm({
                       min="1"
                       max="5"
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300"
                       value={product.rating}
                       onChange={(e) =>
                         setProduct({ ...product, rating: e.target.value })
@@ -525,7 +525,7 @@ function ProductForm({
                   <input
                     type="number"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={product.reviews}
                     onChange={(e) =>
                       setProduct({ ...product, reviews: e.target.value })
@@ -537,7 +537,7 @@ function ProductForm({
                   <input
                     type="checkbox"
                     id="bestseller"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-blue-600 border-gray-300 rounded"
                     checked={product.bestseller}
                     onChange={(e) =>
                       setProduct({ ...product, bestseller: e.target.checked })
@@ -562,7 +562,7 @@ function ProductForm({
                   <input
                     type="url"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={product.image}
                     onChange={(e) =>
                       setProduct({ ...product, image: e.target.value })
@@ -577,7 +577,7 @@ function ProductForm({
                   <input
                     type="url"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300"
                     value={product.image2}
                     onChange={(e) =>
                       setProduct({ ...product, image2: e.target.value })
@@ -594,7 +594,7 @@ function ProductForm({
                       <img
                         src={product.image}
                         alt="Preview"
-                        className="w-full h-24 object-cover rounded-lg"
+                        className="w-full h-24 object-cover rounded-md"
                       />
                     </div>
                   )}
@@ -606,7 +606,7 @@ function ProductForm({
                       <img
                         src={product.image2}
                         alt="Preview"
-                        className="w-full h-24 object-cover rounded-lg"
+                        className="w-full h-24 object-cover rounded-md"
                       />
                     </div>
                   )}
@@ -627,7 +627,7 @@ function ProductForm({
                     <button
                       type="button"
                       onClick={() => toggleSizeStock(size.name, isEditing)}
-                      className={`w-full py-2 rounded-lg text-xs font-medium transition-colors ${
+                      className={`w-full py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                         size.inStock
                           ? "bg-green-100 text-green-800 hover:bg-green-200"
                           : "bg-red-100 text-red-800 hover:bg-red-200"
@@ -648,7 +648,7 @@ function ProductForm({
                 <textarea
                   required
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300"
                   value={product.description}
                   onChange={(e) =>
                     setProduct({ ...product, description: e.target.value })
@@ -662,7 +662,7 @@ function ProductForm({
                 <textarea
                   required
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300"
                   value={product.details}
                   onChange={(e) =>
                     setProduct({ ...product, details: e.target.value })
@@ -675,13 +675,13 @@ function ProductForm({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="flex-1 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-black cursor-pointer"
               >
                 {isEditing ? "Update Product" : "Add Product"}
               </button>

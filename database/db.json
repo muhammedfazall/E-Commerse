@@ -150,7 +150,7 @@
         }
       ],
       "createdAt": "date",
-      "isBlocked": false,
+      "isBlocked": true,
       "wishList": [],
       "shipmentAddress": {
         "firstName": "fin",
@@ -206,7 +206,7 @@
           },
           "paymentMode": "Cash on Delivery",
           "total": 248.99,
-          "status": "Processing",
+          "status": "Shipped",
           "date": "2025-09-26T11:34:36.586Z",
           "userId": "57f8",
           "userName": "ansil",
@@ -234,9 +234,188 @@
       "createdAt": "2025-09-26T14:24:17.782Z",
       "isBlocked": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": 1758940563707,
+          "items": [
+            {
+              "id": "19",
+              "name": "SB Dunk Low 'Neckface'",
+              "price": 210,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/19313174_42291692_2048-scaled.jpg",
+              "selectedSize": "7.5",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "dev",
+            "lastName": "pt",
+            "address": "home (H) , Street, District, State",
+            "contact": "1522849565",
+            "city": "District",
+            "postalCode": "779894",
+            "paymentMode": "UPI"
+          },
+          "paymentMode": "UPI",
+          "total": 232.79000000000002,
+          "status": "Processing",
+          "date": "2025-09-27T02:36:03.707Z",
+          "userId": "4432",
+          "userName": "dev",
+          "userEmail": "dev@fake.com"
+        },
+        {
+          "id": 1758940314415,
+          "items": [
+            {
+              "id": "16",
+              "name": "Nike Air Force 1 Low 'Skeleton Black'",
+              "price": 125,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/14642747_22854268_2048.jpg-scaled.webp",
+              "selectedSize": "7",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "dev",
+            "lastName": "pt",
+            "address": "home (H) , Street, District, State",
+            "contact": "1438378384",
+            "city": "District",
+            "postalCode": "779894",
+            "paymentMode": "Card Payment"
+          },
+          "paymentMode": "Card Payment",
+          "total": 140.99,
+          "status": "Shipped",
+          "date": "2025-09-27T02:31:54.415Z",
+          "userId": "4432",
+          "userName": "dev",
+          "userEmail": "dev@fake.com"
+        }
+      ],
       "wishList": [],
-      "shipmentAddress": null
+      "shipmentAddress": {
+        "firstName": "dev",
+        "lastName": "pt",
+        "address": "home (H) , Street, District, State",
+        "contact": "1522849565",
+        "city": "District",
+        "postalCode": "779894",
+        "paymentMode": "UPI"
+      }
+    },
+    {
+      "id": "3659",
+      "name": "anandu",
+      "email": "anandu@fake.com",
+      "role": "User",
+      "password": "123",
+      "cart": [],
+      "wishList": [],
+      "orders": [
+        {
+          "id": 1758949073143,
+          "items": [
+            {
+              "id": "9",
+              "name": "Air Jordan 1 Retro High OG 'University Blue'",
+              "price": 200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/15957834_30928142_2048.jpg-scaled.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            },
+            {
+              "id": "14",
+              "name": "Air Jordan 7 Retro 'Citrus'",
+              "price": 200,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/10/18947413_44392281_2048-767x1024.jpg",
+              "selectedSize": "9",
+              "quantity": 1
+            },
+            {
+              "id": "18",
+              "name": "Nike Air Max 'Terrascape 90'",
+              "price": 170,
+              "image": "https://sneakheads.in/wp-content/uploads/2025/05/terra-1-768x1016.png",
+              "selectedSize": "7",
+              "quantity": 1
+            },
+            {
+              "id": "11",
+              "name": "Air Jordan 4 Retro 'Black Cat'",
+              "price": 225,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/15057688_25617121_2048.jpg-scaled.webp",
+              "selectedSize": "10",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "anandu",
+            "lastName": "pt",
+            "address": "home (H) , Street, District, State",
+            "contact": "1234567890",
+            "city": "District",
+            "postalCode": "125456",
+            "paymentMode": "Card Payment"
+          },
+          "paymentMode": "Card Payment",
+          "total": 864.59,
+          "status": "Shipped",
+          "date": "2025-09-27T04:57:53.143Z",
+          "userId": "3659",
+          "userName": "anandu",
+          "userEmail": "anandu@fake.com"
+        },
+        {
+          "id": 1758948963487,
+          "items": [
+            {
+              "id": "7",
+              "name": "Nike Dunk Low 'Panda'",
+              "price": 120,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31752432_2048.jpg-scaled.webp",
+              "selectedSize": "7",
+              "quantity": 2
+            },
+            {
+              "id": "7",
+              "name": "Nike Dunk Low 'Panda'",
+              "price": 120,
+              "image": "https://sneakheads.in/wp-content/uploads/2024/09/16403569_31752432_2048.jpg-scaled.webp",
+              "selectedSize": "8",
+              "quantity": 1
+            }
+          ],
+          "address": {
+            "firstName": "anandu",
+            "lastName": "ha",
+            "address": "home (H) , Street, District, State",
+            "contact": "1234567890",
+            "city": "District",
+            "postalCode": "123456",
+            "paymentMode": "Card Payment"
+          },
+          "paymentMode": "Card Payment",
+          "total": 394.79,
+          "status": "Processing",
+          "date": "2025-09-27T04:56:03.487Z",
+          "userId": "3659",
+          "userName": "anandu",
+          "userEmail": "anandu@fake.com"
+        }
+      ],
+      "createdAt": "2025-09-27",
+      "isBlocked": false,
+      "shipmentAddress": {
+        "firstName": "anandu",
+        "lastName": "pt",
+        "address": "home (H) , Street, District, State",
+        "contact": "1234567890",
+        "city": "District",
+        "postalCode": "125456",
+        "paymentMode": "Card Payment"
+      }
     }
   ],
   "categories": [

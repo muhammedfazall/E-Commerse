@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../context/Context';
 import { Line, Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -25,7 +24,6 @@ ChartJS.register(
 );
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [dashboardData, setDashboardData] = useState({
     totalOrders: 0,
@@ -93,7 +91,7 @@ export default function Dashboard() {
 
       const orderStatusOverview = {
         totalOrders: allOrders.length,
-        pending: allOrders.filter(order => order.status === 'Pending' || !order.status).length,
+        processing: allOrders.filter(order => order.status === 'processing' || !order.status).length,
         confirmed: allOrders.filter(order => order.status === 'Confirmed').length,
         shipped: allOrders.filter(order => order.status === 'Shipped').length,
         delivered: allOrders.filter(order => order.status === 'Delivered').length,
@@ -326,7 +324,7 @@ export default function Dashboard() {
                 onClick={() => setRevenuePeriod('lastWeek')}
                 className={`px-3 py-1 text-sm rounded-md ${
                   revenuePeriod === 'lastWeek'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-blue-950 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -336,7 +334,7 @@ export default function Dashboard() {
                 onClick={() => setRevenuePeriod('last30Days')}
                 className={`px-3 py-1 text-sm rounded-md ${
                   revenuePeriod === 'last30Days'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-blue-950 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -346,7 +344,7 @@ export default function Dashboard() {
                 onClick={() => setRevenuePeriod('last6Months')}
                 className={`px-3 py-1 text-sm rounded-md ${
                   revenuePeriod === 'last6Months'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-blue-950 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -466,7 +464,7 @@ export default function Dashboard() {
               .map(([category, count]) => (
                 <div key={category} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                   <span className="text-sm font-medium text-gray-700 truncate">{category}</span>
-                  <span className="text-sm font-bold text-blue-600">{count}</span>
+                  <span className="text-sm font-bold text-blue-500">{count}</span>
                 </div>
               ))}
           </div>
@@ -480,19 +478,19 @@ export default function Dashboard() {
           <div className="space-y-4">
             <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
               <span className="font-medium">Total Orders</span>
-              <span className="text-lg font-bold text-blue-600">
+              <span className="text-lg font-bold text-blue-500">
                 {dashboardData.orderStatusOverview.totalOrders}
               </span>
             </div>
             <div className="flex justify-between items-center p-3 bg-yellow-50 rounded">
-              <span className="font-medium">Pending</span>
+              <span className="font-medium">processing</span>
               <span className="text-lg font-bold text-yellow-600">
-                {dashboardData.orderStatusOverview.pending}
+                {dashboardData.orderStatusOverview.processing}
               </span>
             </div>
             <div className="flex justify-between items-center p-3 bg-blue-50 rounded">
               <span className="font-medium">Confirmed</span>
-              <span className="text-lg font-bold text-blue-600">
+              <span className="text-lg font-bold text-blue-500">
                 {dashboardData.orderStatusOverview.confirmed}
               </span>
             </div>
