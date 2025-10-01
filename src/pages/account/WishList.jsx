@@ -7,7 +7,7 @@ export default function WishList() {
     useContext(ProductContext);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 pt-40">
       <h1 className="text-2xl font-bold mb-6">My Wishlist</h1>
 
       {wishList.length === 0 ? (

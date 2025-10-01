@@ -15,6 +15,7 @@ export default function Search({ onClose }) {
     const handleEscape = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", handleEscape);
     document.body.style.overflow = 'hidden';
+    
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = 'unset';
@@ -22,57 +23,71 @@ export default function Search({ onClose }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-white">
-      {/* Ultra-compact Header */}
-      <div className="px-3 py-2 border-b">
-        <div className="flex items-center gap-2">
-          <MagnifyingGlassIcon className="size-10 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 text-3xl h-20 p-1 border-none focus:outline-none"
-            autoFocus
-          />
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            <XMarkIcon className="size-10" />
-          </button>
+    <>
+      {/* Backdrop with blur */}
+      <div className="fixed inset-0 z-40" onClick={onClose} />
+      
+      {/* Search modal */}
+      <div className="fixed inset-0 z-50 pt-42">
+        <div className="relative bg-white h-full">
+          {/* Ultra-compact Header */}
+          <div className="px-3 py-2 bg-white">
+            <div className="flex items-center gap-2">
+              <MagnifyingGlassIcon className="size-10 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="flex-1 text-3xl h-20 p-1 border-none focus:outline-none bg-transparent"
+                autoFocus
+              />
+              <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                <XMarkIcon className="size-10" />
+              </button>
+            </div>
+          </div>
+
+          {/* Ultra-compact Content */}
+          <div className="h-[calc(100vh-48px)] overflow-y-auto p-3 bg-white">
+            {filteredProducts.length > 0 ? (
+              <>
+                <div className="text-m text-gray-500 mb-3">
+                  {filteredProducts.length} results
+                </div>
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                  {filteredProducts.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/productdetails/${product.id}`}
+                      onClick={onClose}
+                      className="block group"
+                    >
+                      <div className="aspect-square mb-1">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover rounded group-hover:scale-105 transition-transform"
+                        />
+                      </div>
+                      <div className="font-medium text-xs line-clamp-2">{product.name}</div>
+                      <div className="text-gray-600 text-xs">${product.price}</div>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : search ? (
+              <div className="text-center text-gray-500 mt-8">
+                No products found for "{search}"
+              </div>
+            ) : (
+              <div className="text-center text-gray-500 mt-8">
+                Start typing to search products
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
-      {/* Ultra-compact Content */}
-      <div className="h-[calc(100vh-48px)] overflow-y-auto p-3">
-        
-
-        {filteredProducts.length > 0 && (
-          <>
-            <div className="text-m text-gray-500 mb-3">
-              {filteredProducts.length} results
-            </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-              {filteredProducts.map((product) => (
-                <Link
-                  key={product.id}
-                  to={`/productdetails/${product.id}`}
-                  onClick={onClose}
-                  className="block group"
-                >
-                  <div className="aspect-square mb-1">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover rounded group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="font-medium text-xs line-clamp-2">{product.name}</div>
-                  <div className="text-gray-600 text-xs">${product.price}</div>
-                </Link>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+    </>
   );
 }

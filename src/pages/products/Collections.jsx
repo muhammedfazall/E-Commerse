@@ -12,7 +12,7 @@ export default function Collections() {
 
   return (
     <div>
-      <div className="max-w-[1400px] mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4 pt-40">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {products.map((product) => (
             <div key={product.id} className="group">

@@ -26,18 +26,44 @@ export default function Register() {
         }))
     }
 
-    const handleSubmit= (e) => {
+    const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+};
+
+    const validatePassword = (password) => {
+    return password.length >= 6;
+};
+
+
+    const handleSubmit= async (e) => {
         e.preventDefault();
-        axios.post(userApi,newUser);
-        console.log("newUser:",newUser);
-        showToast.success("Registration Successfull");
+
+        if (!validateEmail(newUser.email)) {
+        showToast.error("Please enter a valid email address");
+        return;
+    }
+
+        if (!validatePassword(newUser.password)) {
+        showToast.error("Password must be at least 6 characters long");
+        return;
+    }
+
+        try {
+        await axios.post(userApi, newUser);
+        console.log("newUser:", newUser);
+        showToast.success("Registration Successful");
         navigate('/login');
+    } catch (error) {
+        console.error("Registration failed:", error);
+        showToast.error("Registration failed. Please try again.");
+    }
         }
        
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 pt-40">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">

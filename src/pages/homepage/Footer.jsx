@@ -66,7 +66,7 @@ export default function Footer() {
                 <div className="border-t border-gray-200 pt-8">
                     <div className="flex flex-col items-center">
                         <h1 className="text-6xl font-black text-gray-900 mb-4 tracking-tighter">SNEAKCAVE</h1>
-                        <p className="text-gray-500 text-sm">© 2024 Sneakcave. All rights reserved.</p>
+                        <p className="text-gray-500 text-sm">&copy; {new Date().getFullYear()} Sneakcave. All rights reserved.</p>
                     </div>
                 </div>
             </div>

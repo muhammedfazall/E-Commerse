@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { AuthContext, ProductContext } from "../../context/Context";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Search from "../products/Search";
@@ -10,8 +10,11 @@ export default function Header() {
   const { cart, openCart } = useContext(ProductContext);
   const { user, openAccount } = useContext(AuthContext);
   const [openSearch, setOpenSearch] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
+  const headerRef = useRef(null);
 
   const handleCartClick = () => {
     if (!user) {
@@ -31,15 +34,56 @@ export default function Header() {
     }
   };
 
+  // Scroll handling effect
+  useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 580) {
+        // Scrolling down & past 100px - hide header
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show header
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    // Throttle the scroll event for better performance
+    let ticking = false;
+    const throttledControlHeader = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          controlHeader();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledControlHeader, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', throttledControlHeader);
+    };
+  }, [lastScrollY]);
+
+
   return (
-    <header className="bg-white border-b border-gray-200 top-0 z-20">
+    <header 
+      ref={headerRef}
+      className={`bg-white border-b border-gray-200 top-0 z-20 fixed w-full transition-transform duration-500 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="w-full">
         <div className="text-center bg-black text-white py-2 px-4">
           Receive $20 off your first order. Sign up for emails.
         </div>
 
         <nav
-          className="flex items-center justify-between py-4"
+          className="flex items-center justify-between py-4 px-4 lg:px-6"
           aria-label="Primary"
         >
           <Link to="/" className="flex-shrink-0">

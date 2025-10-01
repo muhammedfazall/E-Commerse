@@ -17,7 +17,7 @@ export default function Account() {
     <Dialog
       open={isAccountOpen}
       onClose={closeAccount}
-      className="relative z-10"
+      className="relative z-50"
     >
       <DialogBackdrop
         transition

@@ -65,7 +65,7 @@ export default function Orders() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 pt-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">My Orders</h1>
@@ -117,7 +117,7 @@ export default function Orders() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-medium text-gray-900 truncate">{item.name}</p>
-                          <p className="text-sm text-gray-600 mt-1">${item.price.toFixed(2)} x {item.quantity}</p>
+                          <p className="text-sm text-gray-600 mt-1">${item.price} x {item.quantity}</p>
                         </div>
                       </div>
                       <p className="font-semibold text-gray-900 ml-4">
