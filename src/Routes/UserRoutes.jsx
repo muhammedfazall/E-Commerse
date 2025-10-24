@@ -10,7 +10,7 @@ import WishList from "../pages/account/WishList";
 import Search from "../pages/products/Search";
 import Checkout from "../pages/account/Checkout";
 import Orders from "../pages/account/Orders";
-import Register from "../pages/account/register";
+import Register from "../pages/account/Register";
 
 export default function UserRoutes() {
   return (
