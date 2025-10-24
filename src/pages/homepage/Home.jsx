@@ -91,7 +91,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="lg:w-2/3">
             <h2 className="text-4xl md:text-7xl mb-4 px-3 text-white">
-              Heat on Your Feet.
+              Earned. Not given.
             </h2>
             <div className="mt-6 flex gap-4">
               <Link
@@ -201,12 +201,12 @@ export default function Home() {
                           <img
                             src={product.image}
                             alt={product.name}
-                            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-600 hover:opacity-0"
+                            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 hover:opacity-0"
                           />
                           <img
                             src={product.image2}
                             alt={product.name}
-                            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-600 hover:opacity-100"
+                            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 hover:opacity-100"
                           />
                         </Link>
 
@@ -406,12 +406,12 @@ export default function Home() {
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 hover:opacity-0"
+                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 hover:opacity-0"
                       />
                       <img
                         src={product.image2}
                         alt={product.name}
-                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100"
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 hover:opacity-100"
                       />
                     </Link>
 

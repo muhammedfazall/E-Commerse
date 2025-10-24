@@ -95,7 +95,7 @@ export default function Header() {
           <div className="flex items-center space-x-6">
             <button
               onClick={() => setOpenSearch(!openSearch)}
-              className="hidden lg:block font-medium cursor-pointer"
+              className="hidden lg:block font-semibold cursor-pointer text-gray-700 hover:text-black"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -134,9 +134,9 @@ export default function Header() {
                 </svg>
               </div>
             ) : (
-              <div className="hidden lg:block font-medium">
+              <div className="hidden lg:block m-8 font-medium">
                 <Link
-                  className="decoration-transparent hover:decoration-black"
+                  className="font-semibold text-gray-700 hover:text-black decoration-transparent"
                   to="/login"
                 >
                   Log in
@@ -145,7 +145,7 @@ export default function Header() {
             )}
 
             <div
-              className="font-medium cursor-pointer flex"
+              className="font-semibold text-gray-700 cursor-pointer flex hover:text-black"
               onClick={handleCartClick}
             >
               <svg
